@@ -89,30 +89,25 @@ header.sticky ul li a {
 
 header.sticky ul li a:hover {
     background-color: #fff;
-    border-radius: 0.2rem;
     color: #000;
 }
 
 header.sticky .women{
     background-color: #fff;
-    border-radius: 0.2rem;
     color: #000;
 }
 
 header.sticky .men{
     background-color: #fff;
-    border-radius: 0.2rem;
     color: #000;
 }
 
 header.sticky .kids{
     background-color: #fff;
-    border-radius: 0.2rem;
     color: #000;
 }
 
 ul li a:hover {
     background-color: #000;
-    border-radius: 0.2rem;
     color: #fff;
 }
