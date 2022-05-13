@@ -1,6 +1,6 @@
 Roan, SD1C
 
-#Fine Clothes
+# Fine Clothes
 
 Ik ben van plan om een kleding winkel te maken waar mensen goede kwaliteit kleding kunnen kopen voor een betaalbare prijs. 
 
