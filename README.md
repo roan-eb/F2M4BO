@@ -13,4 +13,3 @@ https://trello.com/b/UQLqqe3Z/f2m4bo
 
 Product vision canvas:
 https://padlet.com/mdespotovic/MIRideeen/wish/2179096456
-

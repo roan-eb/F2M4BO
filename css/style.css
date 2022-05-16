@@ -6,7 +6,6 @@
 
 body{
     background: white;
-    min-height: 200vh;
 }
 
 header{
@@ -111,3 +110,10 @@ ul li a:hover {
     background-color: #000;
     color: #fff;
 }
+
+footer{
+    height: 4.75rem;
+    align-items: center;
+    background-color: #000;
+}
+
