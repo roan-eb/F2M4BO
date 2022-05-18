@@ -4,11 +4,16 @@
     box-sizing: border-box;
 }
 
-body{
-    background: white;
+html{
+    font-size: 62.5%;
 }
 
-header{
+body{
+    background: white;
+    font-size: 1.8rem;
+}
+
+nav{
     position: fixed;
     top: 0;
     left: 0;
@@ -17,16 +22,16 @@ header{
     justify-content: space-between;
     align-items: center;
     transition: 0.6s;
-    padding: 2.5rem 6.25rem;
+    padding: 3.5rem 6.25rem;
     z-index: 100000;
 }
 
-header.sticky{
-    padding: 0.3rem 6.25rem;
+nav.sticky{
+    padding: 2.3rem 6.25rem;
     background: #000;
 }
 
-header .logo{
+nav .logo{
     position: relative;
     font-weight: 700;
     color: #000;
@@ -37,19 +42,19 @@ header .logo{
     transition: 0.6s;   
 }
 
-header ul{
+nav ul{
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-header ul li{
+nav ul li{
     position: relative;
     list-style: none;
 }
 
-header ul li a{
+nav ul li a{
     position: relative;
     margin: 0 0.9rem;
     text-decoration: none;
@@ -60,60 +65,258 @@ header ul li a{
     transition: 0.6s;   
 }
 
-header .women{
+nav .women{
     background-color: #000;
     color: #fff;
 }
 
-header .men{
+nav .men{
     background-color: #000;
     color: #fff;
 }
 
-header .kids{
+nav .kids{
     background-color: #000;
     color: #fff;
 }
+
+nav.sticky .logo,
+nav.sticky ul li a {
+    color: #fff;
+}
+
+nav.sticky ul li a:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+nav.sticky .women{
+    background-color: #fff;
+    color: #000;
+}
+
+nav.sticky .men{
+    background-color: #fff;
+    color: #000;
+}
+
+nav.sticky .kids{
+    background-color: #fff;
+    color: #000;
+}
+
+nav ul li a:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+
+
 
 .banner{
     position: relative;
     width: 100%;
     height: 100vh;
-    background-size: cover;
+    background-color: aliceblue;
 }
-header.sticky .logo,
-header.sticky ul li a {
+
+.form--contact{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+    flex-direction: column;
+    padding-top: 10rem;
+}
+
+.container--form{
+    width: 90%;
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 2rem;
+    box-shadow: 0 0 2rem #00000010;
+    background-color: white;
+    border-radius: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+.form--group{
+    width: 100%;
+    margin-top: 2rem;
+    font-size: 2rem;
+}
+
+.form--group input,
+.form--group textarea{
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1.8rem;
+    border: 0.1rem solid rgb(128, 128, 128, 0.199);
+    margin-top: 0.5rem;
+}
+
+textarea{
+    resize: none;
+}
+button[type="submit"]{
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 2rem;
+    font-size: 2.4rem;
+    border-radius: 0.8rem;
     color: #fff;
-}
-
-header.sticky ul li a:hover {
-    background-color: #fff;
-    color: #000;
-}
-
-header.sticky .women{
-    background-color: #fff;
-    color: #000;
-}
-
-header.sticky .men{
-    background-color: #fff;
-    color: #000;
-}
-
-header.sticky .kids{
-    background-color: #fff;
-    color: #000;
-}
-
-ul li a:hover {
     background-color: #000;
-    color: #fff;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.section--first{
+    background: white;
+}
+
+.section--second{
+    background: white;
+}
+
+.section--third{
+    display: flex;
+    height: auto;
+    padding: 4rem;
+    align-items: center;
+    background-color: aliceblue;
+}
+
+.arrow{
+    width: 10%;
+    background: white;
+    font-size: 300%;
+    outline: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    background-color: aliceblue;
+}
+
+.arrow:hover{
+    cursor:pointer;
+}
+
+.reviews{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 2rem;
+    width: 80%;
+    flex-wrap: wrap;
+}
+
+.review{
+    width: 30rem;
+    min-height: 20rem;
+    list-style: none;
+    padding: 3rem;
+    border-radius: 0.5rem;
+    background: white;
+    box-shadow: 0 1rem 1rem 0 rgba(0,0,0,0.2);
+    position: relative;
+    animation-name: fadeIn;
+    animation-duration: 0.6s;
+}
+
+.review:nth-of-type(4), .review:nth-of-type(5), .review:nth-of-type(6){
+    display: none;
+}
+
+.stars{
+    color: gold;
+}
+
+.review p {
+    font-style: italic;
+    padding-bottom: 2rem;
+    border-bottom: 0.5rem solid rgba(0,0,0,0.2);
 }
 
 footer{
-    height: 4.75rem;
-    align-items: center;
+    padding: 4rem 0;
     background-color: #000;
 }
 
+.footer .social{
+    text-align: center;
+    padding-bottom: 2.5rem;
+}
+
+.footer .social a{
+    font-size: 2.4rem;
+    color: #fff;
+    border: 0.15rem solid rgb(255, 255, 255);
+    width: 4rem;
+    height: 4rem;
+    line-height: 3.8rem;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 0.8rem;
+    opacity: 0.75;
+}
+
+.footer .social a:hover {
+    opacity: 0.9;
+}
+
+.footer ul{
+    margin-top: 0;
+    padding: 0;
+    list-style: none;
+    line-height: 1.6;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.footer ul li a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.8;
+    padding: 0.5rem;
+}
+
+.footer ul li{
+    display: inline-block;
+    padding: 0 1.5rem;
+}
+
+footer ul li a:hover{
+    opacity: 1;
+}
+
+.footer .copyright{
+    margin-top: 1rem;
+    text-align: center;
+    color: #fff;
+    opacity: 0.8;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+        filter: blur(10px);
+    }
+    to{
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+@media screen and (max-width: 50rem) {
+    .arrow{
+        display: none;
+    }
+    .reviews{
+        width: 100%;
+    }
+}
