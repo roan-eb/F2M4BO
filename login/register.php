@@ -1,10 +1,39 @@
+<?php
+session_start();
+
+    include("connection.php");
+    include("functions.php");
+
+    if($_SERVER['REQUEST_METHOD'] == "POST")
+    {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        if(!empty($email) && !empty($password))
+        {
+            // save info to database
+            $user_id = random_num(20);
+            $query = "insert into users (user_id,email,password) values ('$user_id','$email','$password')";
+
+            mysqli_query($con, $query);
+
+            header("Location: index.php");
+            die;
+        }else
+        {
+            echo "Please enter valid information!";
+        }
+
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fine Clothes</title>
+    <title>Register</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="shortcut icon" href=""/>
     <script src="/js/main.js" defer></script>
@@ -16,8 +45,23 @@
             <a href="/index.html" class="logo">Fine Clothes</a>
         </nav>    
     </header>
-    <section class="banner"></section>
-    
+    <section class="banner">
+    <div id="box-login">
+        <form method="POST">
+            <div class="login-title">Register</div>
+           
+            <h5>Email</h5><i class="fa fa-envelope" aria-hidden="true"></i>
+            <input id="text-form" type="email" name="email" placeholder="Enter email address"><br><br>
+            <h5>Password</h5><i class="fa fa-lock" aria-hidden="true"></i>
+            <input id="text-form" type="password" name="password" placeholder="Enter password"><br><br>
+
+            <input id="button-form" type="submit" value="Register"><br><br>
+
+            <a href="index.php">Click to Login</a><br><br>
+        </form>
+    </div>
+    </section>
+
     <footer class="footer">
         <div class="social">
             <a href="https://www.instagram.com/fineclothes/"><i class="fab fa-instagram"></i></a>
