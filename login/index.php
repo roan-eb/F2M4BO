@@ -2,8 +2,9 @@
 
 session_start();
 
-    include("connection.php");
+    $con = require("connection.php");
     include("functions.php");
+    $error = false;
 
     if($_SERVER['REQUEST_METHOD'] == "POST")
     {
@@ -31,19 +32,14 @@ session_start();
                     }
                 }
             }
-            echo "Wrong email or password!";
+            $error =  "Wrong email or password!";
         }else
         {
-            echo "Please enter valid information!";
+            $error = "Please enter valid information!";
         }
 
     }
-
-    
-    
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -65,19 +61,24 @@ session_start();
     </header>
     <section class="banner">
     <div id="box-login">
-        <form method="POST">
+        <form class="form-form" method="POST">
             <div class="login-title">Login</div>
-           
-            <h5>Email</h5><i class="fa fa-envelope" aria-hidden="true"></i>
+
+            <h5 class="login-h5">Email</h5><i class="fa fa-envelope" aria-hidden="true"></i>
             <input id="text-form" type="email" name="email" placeholder="Email"><br><br>
-            <h5>Password</h5><i class="fa fa-lock" aria-hidden="true"></i>
+            <h5 class="login-h5">Password</h5><i class="fa fa-lock" aria-hidden="true"></i>
             <input id="text-form" type="password" name="password" placeholder="Password"><br><br>
             <input id="button-form" type="submit" value="Login"><br><br>
 
             <a href="register.php">Click to Register</a><br><br>
         </form>
     </div>
-    
+    <?php if($error):?>
+    <div class="error-msg">
+        <?php echo $error; ?> 
+    </div>
+    <?php endif ?>
+
     </section>
 
     

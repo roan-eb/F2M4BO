@@ -1,9 +1,9 @@
 <?php
+
 session_start();
 
-    $con = require("connection.php");
+    include("connection.php");
     include("functions.php");
-    $error = false;
 
     if($_SERVER['REQUEST_METHOD'] == "POST")
     {
@@ -12,20 +12,29 @@ session_start();
 
         if(!empty($email) && !empty($password))
         {
-            // save info to database
-            $user_id = random_num(20);
-            $query = "insert into users (user_id,email,password) values ('$user_id','$email','$password')";
+            // read info from database
+            $query = "select * from users where email = '$email' limit 1";
 
             $result = mysqli_query($con, $query);
-            if($result == true){   
-                header("Location: index.php");
-                die;
+
+            if($result)
+            {
+                if($result && mysqli_num_rows($result) > 0)
+                {
+                    $user_data = mysqli_fetch_assoc($result);
+
+                    if($user_data['password'] === $password)
+                    {
+                        $_SESSION['user_id'] = $user_data['user_id'];
+                        header("Location: account.php");
+                        die; 
+                    }
+                }
             }
-            
-            $error = "This email address has already been used!";
+            echo "Wrong email or password!";
         }else
         {
-            $error = "Please enter valid information!";
+            echo "Please enter valid information!";
         }
 
     }
@@ -37,7 +46,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Login</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="shortcut icon" href=""/>
     <script src="/js/main.js" defer></script>
@@ -47,32 +56,26 @@ session_start();
     <header>
         <nav>
             <a href="/index.html" class="logo">Fine Clothes</a>
-        </nav>    
+        </nav>
     </header>
     <section class="banner">
     <div id="box-login">
-        <form method="POST">
-            <div class="login-title">Register</div>
+        <form class="form-form" method="POST">
+            <div class="login-title">Login</div>
            
             <h5 class="login-h5">Email</h5><i class="fa fa-envelope" aria-hidden="true"></i>
-            <input id="text-form" type="email" name="email" placeholder="Enter email address"><br><br>
+            <input id="text-form" type="email" name="email" placeholder="Email"><br><br>
             <h5 class="login-h5">Password</h5><i class="fa fa-lock" aria-hidden="true"></i>
-            <input id="text-form" type="password" name="password" placeholder="Enter password"><br><br>
+            <input id="text-form" type="password" name="password" placeholder="Password"><br><br>
+            <input id="button-form" type="submit" value="Login"><br><br>
 
-            <input id="button-form" type="submit" value="Register"><br><br>
-
-            <a href="index.php">Click to Login</a><br><br>
+            <a href="register.php">Click to Register</a><br><br>
         </form>
     </div>
-    <?php if($error):?>
-    <div class="error-msg">
-        <?php echo $error; ?> 
-    </div>
-    <?php endif ?>
-
+    
     </section>
 
-
+    
     <footer class="footer">
         <div class="social">
             <a href="https://www.instagram.com/fineclothes/"><i class="fab fa-instagram"></i></a>
@@ -93,7 +96,6 @@ session_start();
             © 2022 Fine Clothes. 
         </p>
     </footer>
-
 
 
 </body>

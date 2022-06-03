@@ -13,10 +13,7 @@ function check_login($con)
             $user_data = mysqli_fetch_assoc($result);
             return $user_data;
         }
-    }
-
-    // redirect to index (login page)
-    
+    } 
     header("Location: index.php");
     die;
 }

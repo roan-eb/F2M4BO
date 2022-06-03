@@ -13,27 +13,21 @@ body{
     font-size: 1.8rem;
 }
 
-
-
-
-
 .banner{
-    padding-top: 12rem;
-    padding-bottom: 12rem;
+    padding-top: 20rem;
     position: relative;
     width: 100%;
-    height: 50vh;
+    height: 100vh;
     background-color: aliceblue;
 }
 
 #text-form{
     height: 2.5rem;
     border-radius: 0.5rem;
-    padding: 1rem;
+    padding: 1.5rem;
     border: solid thin #000;
-    width: 80%;
+    width: 70%;
 }
-
 
 #button-form{
     padding: 1rem;
@@ -46,24 +40,43 @@ body{
 #box-login{
     background-color: gray;
     margin: auto;
-    width: 30rem;
     padding: 2rem;
+    width: 40rem;
+    margin-top: 2rem;
+    font-size: 2rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 2rem 0 rgba(0,0,0,0.2);
+
+}
+
+.error-msg{
+    background-color: lightcoral;
+    margin: auto;
+    padding: 2rem;
+    width: 40rem;
+    margin-top: 2rem;
+    font-size: 2rem;
+    border-radius: 2rem;
 }
 
 .login-title{
-    font-size: 2rem;
+    font-size: 3rem;
     margin: 1rem;
     color: white;
+    padding: 1rem;
 }
 
+.login-h5{
+    font-size: 2rem;
+    color: black;
+    padding: 1rem;
+}
 
-
-
-
-
-
-
-
+.account-info{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
 
 nav{
     position: fixed;
@@ -142,8 +155,6 @@ nav ul li a:hover {
     color: #fff;
     border-radius: 0.5rem;
 }
-
-
 
 img{
     width: 90%;
@@ -294,6 +305,7 @@ img{
     background-color: white;
     border-radius: 0.8rem;
     margin-bottom: 2rem;
+    box-shadow: 0 0 2rem 0 rgba(0,0,0,0.2);
 }
 
 .form--group{
@@ -323,16 +335,11 @@ textarea{
     padding: 2rem;
     font-size: 2rem;
     border-radius: 0.8rem;
-    color: #000;
-    background-color: #eee;
+    color: black;
+    background-color: rgb(128, 128, 128, 0.199);
     cursor: pointer;
     margin-top: 1rem;
-}
-
-.form-sub:hover{
-    background-color: aliceblue;
-    border-radius: 0.5rem;
-    transition: 0.6s;
+    border: 0.1rem solid rgb(128, 128, 128, 0.199);
 }
 
 .section--first{
