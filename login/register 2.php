@@ -1,8 +1,9 @@
 <?php
 session_start();
 
-    include("connection.php");
+    $con = require("connection.php");
     include("functions.php");
+    $error = false;
 
     if($_SERVER['REQUEST_METHOD'] == "POST")
     {
@@ -15,13 +16,16 @@ session_start();
             $user_id = random_num(20);
             $query = "insert into users (user_id,email,password) values ('$user_id','$email','$password')";
 
-            mysqli_query($con, $query);
-
-            header("Location: index.php");
-            die;
+            $result = mysqli_query($con, $query);
+            if($result == true){   
+                header("Location: index.php");
+                die;
+            }
+            
+            $error = "This email address has already been used!";
         }else
         {
-            echo "Please enter valid information!";
+            $error = "Please enter valid information!";
         }
 
     }
@@ -60,7 +64,14 @@ session_start();
             <a href="index.php">Click to Login</a><br><br>
         </form>
     </div>
+    <?php if($error):?>
+    <div class="error-msg">
+        <?php echo $error; ?> 
+    </div>
+    <?php endif ?>
+
     </section>
+
 
     <footer class="footer">
         <div class="social">

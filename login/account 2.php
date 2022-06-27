@@ -1,10 +1,19 @@
+<?php 
+session_start();
+
+    $_SESSION;
+    include("connection.php");
+    include("functions.php");
+    $user_data = check_login($con);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fine Clothes</title>
+    <title>Account</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="shortcut icon" href=""/>
     <script src="/js/main.js" defer></script>
@@ -14,36 +23,19 @@
     <header>
         <nav>
             <a href="/index.html" class="logo">Fine Clothes</a>
+            <ul>
+                <li><a href="account.php"><i class="fa fa-user"></i></a></li>
+                <li><a href=""><i class="fa-solid fa-bag-shopping"></i></a></li>
+                <li><a href="logout.php">Logout</a></li>
+
+            </ul>
         </nav>
     </header>
-
-    <section class="form--contact">
-        <div class="container--form">
-            <form action="https://formspree.io/f/xayvakng" method="post" id="my-form">
-
-                <div class="form--group">
-                    <label for="firstName">First Name</label>
-                    <input type="text" name="firstName" id="firstName" autocomplete="off" required>
-                </div>
-                <div class="form--group">
-                    <label for="lastName">Last Name</label>
-                    <input type="text" name="lastName" id="lastName" autocomplete="off" required>
-                </div>
-                <div class="form--group">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email" autocomplete="off" required>
-                </div>
-                <div class="form--group">
-                    <label for="message">Message</label>
-                    <textarea style="font-family:sans-serif" name="message" id="message" cols="30" rows="10" placeholder="Type your message here.." autocomplete="off" required></textarea>
-                </div>
-                <button type="submit" class="form-sub">Submit</button>
-            </form>
+    <section class="banner">
+        <div class="account-info">
+           <h1>Welcome back!</h1>
         </div>
-        <div id="status"></div>
     </section>
-
-
     <footer class="footer">
         <div class="social">
             <a href="https://www.instagram.com/fineclothes/"><i class="fab fa-instagram"></i></a>
@@ -57,13 +49,12 @@
                 <a href="#">Services</a>
                 <a href="#">Terms</a>
                 <a href="#">Privacy Policy</a>
-                <a href="form.html">Contact Us</a>
+                <a href="/contact/form.html">Contact Us</a>
             </li>
         </ul>
         <p class="copyright">
             © 2022 Fine Clothes. 
         </p>
     </footer>
-
 </body>
 </html>
